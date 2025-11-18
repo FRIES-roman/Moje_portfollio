@@ -23,9 +23,11 @@ def home():
 def contacts():
     return render_template("contacts.htm", users=users)
 
+
 @app.route("/scripty")
 def javascript():
-    return render_template("javascript.htm")đ
+    return render_template("javascript.htm")
+
 
 @app.route("/generator")
 def generator_page():
@@ -46,18 +48,15 @@ def vyhledej_produkty(hledany_vyraz):
     nalezene = []
     try:
         hledane_id = int(hledany_vyraz)
-        for p in produkty:
-            if p["id"] == hledane_id:
-                nalezene.append(p)
-                return nalezene
+        nalezene.extend([p for p in produkty if p["id"] == hledane_id])
     except ValueError:
         pass
 
     hledany_vyraz_lower = hledany_vyraz.lower()
-    for p in produkty:
-        if (hledany_vyraz_lower in p["nazev"].lower() or
-            hledany_vyraz_lower in p["popis"].lower()):
-            nalezene.append(p)
+    nalezene.extend([
+        p for p in produkty
+        if hledany_vyraz_lower in p["nazev"].lower() or hledany_vyraz_lower in p["popis"].lower()
+    ])
     return nalezene
 
 
@@ -110,10 +109,3 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
