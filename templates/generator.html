@@ -1,0 +1,12 @@
+{% extends "base.htm" %}
+
+{% block content %}
+  <h2>Generátor náhodného čísla</h2>
+
+  <div class="gen">
+    <p>Vygenerované číslo je:</p>
+    <div class="cislo">{{ cislo }}</div>
+
+    <a href="{{ url_for('generator_page') }}" class="btn">Generovat znovu</a>
+  </div>
+{% endblock %}

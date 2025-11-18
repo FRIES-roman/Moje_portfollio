@@ -1,0 +1,255 @@
+:root {
+  --primary: #0077cc;
+  --primary-dark: #005fa3;
+  --accent: #0077cc;
+  --background: #f4f4f4;
+  --text: #333;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+nav {
+  background: #222;
+  box-shadow: var(--shadow);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 0;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+main {
+  background: white;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex: 1;
+}
+
+.table-wrap {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.contacts {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  font-size: 0.95rem;
+}
+
+.contacts thead th {
+  text-align: left;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary-dark);
+  background: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.contacts tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  color: var(--text);
+}
+
+.contacts tbody tr {
+  transition: background 0.25s;
+}
+
+.contacts tbody tr:hover {
+  background: #f5faff;
+}
+
+.contacts a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(17,24,39,0.1);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.contacts a:hover {
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+footer {
+  background: #111;
+  color: #ddd;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  margin-top: auto; 
+}
+
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  nav li {
+      margin: 10px 0;
+  }
+
+  main {
+      margin: 20px;
+      padding: 20px;
+  }
+
+  .contacts {
+      font-size: 0.9rem;
+  }
+}
+
+.contacts tbody tr.radek {
+  background-color: blue; 
+}
+
+.thank-you-message {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #0078d7;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tr:hover {
+  background-color: #e6f0ff;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 6px 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+
+section {
+  text-align: center;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+section p {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  color: white;
+}
+
+
+

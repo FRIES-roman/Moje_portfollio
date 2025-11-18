@@ -1,0 +1,40 @@
+{% extends "base.htm" %}
+
+{% block content %}
+<table class="contacts" summary="Tabulka kontaktů se sloupci jméno, příjmení, e-mail, telefon a kancelář">
+    <thead>
+      <tr>
+        <th scope="col">Jméno</th>
+        <th scope="col">Příjmení</th>
+        <th scope="col">E‑mail</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Kancelář</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for id, user in users.items() %}
+            {% if id%2==0 %}
+        <tr class="radek">
+          <td data-label="Jméno">{{ user.jmeno }}</td>
+          <td data-label="Příjmení">{{ user.prijmeni }}</td>
+          <td data-label="E-mail"><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+          <td data-label="Telefon"><a href="tel:{{ user.telefon }}">{{ user.telefon }}</a></td>
+          <td data-label="Kancelář">{{ user.kancelar }}</td>
+        </tr>
+
+            {% else %}
+            <tr>
+              <td data-label="Jméno">{{ user.jmeno }}</td>
+              <td data-label="Příjmení">{{ user.prijmeni }}</td>
+              <td data-label="E-mail"><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+              <td data-label="Telefon"><a href="tel:{{ user.telefon }}">{{ user.telefon }}</a></td>
+              <td data-label="Kancelář">{{ user.kancelar }}</td>
+            </tr>
+
+            {% endif %}
+            
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

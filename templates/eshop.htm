@@ -1,0 +1,50 @@
+{% extends "base.htm" %}
+
+{% block content %}
+<h2>E-shop</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="POST">
+    <input type="text" name="q" placeholder="Hledat produkt..." value="{{ hledany_vyraz }}">
+    <button type="submit" name="hledat">Hledat</button>
+</form>
+
+<h3>Přidej nový produkt</h3>
+<form method="POST">
+    <input type="text" name="nazev" placeholder="Název" required>
+    <input type="number" name="cena" placeholder="Cena" min="1" required>
+    <input type="text" name="popis" placeholder="Popis">
+    <button type="submit" name="pridat">Přidat</button>
+</form>
+
+{% if produkty %}
+<h3>Výsledky</h3>
+<table border="1">
+    <tr>
+        <th>ID</th><th>Název</th><th>Cena</th><th>Popis</th><th>Akce</th>
+    </tr>
+    {% for produkt in produkty %}
+    <tr>
+        <td>{{ produkt.id }}</td>
+        <td>{{ produkt.nazev }}</td>
+        <td>{{ produkt.cena }} Kč</td>
+        <td>{{ produkt.popis }}</td>
+        <td>
+            <form method="POST" style="display: inline;">
+                <input type="hidden" name="produkt_id" value="{{ produkt.id }}">
+                <button type="submit" name="smazat" onclick="return confirm('Opravdu chcete smazat tento produkt?')">Smazat</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
+

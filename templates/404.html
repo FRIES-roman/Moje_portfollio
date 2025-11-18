@@ -1,0 +1,19 @@
+{% extends "base.htm" %}
+
+{% block content %}
+<section style="text-align: center; padding: 40px;">
+    <h2>Stránka nenalezena (404)</h2>
+    <p>Omlouváme se, požadovaná stránka neexistuje nebo byla přesunuta.</p>
+
+    <p style="margin-top: 12px;">Chcete přejít na hlavní stránku?</p>
+
+    <div style="margin-top: 16px; display: flex; justify-content: center; gap: 10px;">
+        <a href="{{ url_for('home') }}" class="btn btn-primary">
+            Ano, na hlavní stránku
+        </a>
+        <a href="{{ request.referrer or url_for('home') }}" class="btn btn-secondary">
+            Zpět
+        </a>
+    </div>
+</section>
+{% endblock %}

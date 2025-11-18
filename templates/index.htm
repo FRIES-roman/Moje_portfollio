@@ -1,0 +1,25 @@
+{% extends "base.htm" %}
+
+{% block content %}
+<section>
+    <h2>O mně</h2>
+    <p>Ve volném čase rád trávím čas s přáteli, hraju na počítači a zajímám se o technologie.</p>
+
+    <h2>Umím tyto technologie</h2>
+    <ul>
+        {% for tech in technologie_webu %}
+            <li>{{ tech }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="get">
+        Zadejte svou e-mailovou adresu:
+        <input type="text" name="email">
+        <input type="submit" value="Odeslat">
+    </form>
+
+    {% if email %}
+        <p class="thank-you-message">Děkujeme za váš email: {{ email }}</p>
+    {% endif %}
+</section>
+{% endblock %}
