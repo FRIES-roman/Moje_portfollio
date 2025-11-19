@@ -6,15 +6,18 @@
     <title>JavaScript – Ukázka</title>
 
     <script> 
-    
+        console.log('Tohle je interní skript v HLAVIČCE dokumentu');
     </script>
 </head>
 <body>
-    <!-- Tzv.inline Javascript, spustí netodu alert()-->
     <button onclick="alert('Právě jsi spustil první JavaScript! Jupíííí!')">
         Klikni na mě...
-
-        <script src="../static/prvniskript.js"></script>
     </button>
+
+    <script src="../static/prvniskript.js"></script>
+
+    <script>
+        console.log('Tohle je interní skript v TĚLE dokumentu');
+    </script>
 </body>
 </html>
